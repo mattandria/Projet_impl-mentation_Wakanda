@@ -23,7 +23,7 @@ class Wakanda(object):
 
 		print d1
 		print d2
-		
+
 		if abs(d1) < 2*self.l1*self.l2 and abs(d2) < 2*self.l1*self.l2 :
 			betad = acos( d1/(2*self.l1*self.l2) )
 			betag = acos( d2/(2*self.l1*self.l2) )
@@ -34,7 +34,10 @@ class Wakanda(object):
 
 			print "theta1 = {}, theta2 = {}".format(theta1, theta2)
 
-		return [theta1, theta2]
+			return [theta1, theta2]
+		else:
+			print "unreachable position"
+			return []
 
 
 wakanda = Wakanda(10, 10)
