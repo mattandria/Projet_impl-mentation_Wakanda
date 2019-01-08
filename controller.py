@@ -8,7 +8,7 @@ class Controller(Thread):
 	#INITIALISATION
 	def__init__(self, periodPWM, periodEncoders, pinPWM1, pinDir1, pinPWM2, pinDir2):
 		Thread.__init__(self)
-		
+
 		#Encodeurs
 		self.encoder1 = eQEP("/sys/devices/ocp.3/48304000.epwmss/48304180.eqep", eQEP.MODE_ABSOLUTE)
 		self.encoder1.set_period(periodEncoders)
@@ -26,7 +26,7 @@ class Controller(Thread):
 		#GPIO setup
 		self.GPIO.setup(pinDir1, GPIO.OUT)
 		self.GPIO.setup(pinDir2, GPIO.OUT)
-		
+
 		#PID
 		self.Kp = 10
 		self.Kd = 0
@@ -37,11 +37,11 @@ class Controller(Thread):
 		self.totalError2 = 0
 
 	#SEND COMMAND TO A MOTOR
-	def sendCmd(self, motor, val):
+	def sendcmd(self, motor, val):
 		if(motor == 1):
 			self.PWM.set_duty_cycle(pinPWM1, val)
 		else:
-			self.PWM.set_duty_cycle(pinDir2, val)
+			self.PWM.set_duty_cycle(pinPWM2, val)
 
 	#CALCULATE THE COMMAND TO SEND TO EACH MOTOR
 	def execute(self):
@@ -54,7 +54,7 @@ class Controller(Thread):
 		lastError1 = error1
 		cmd1 = pTerm1 + dTerm1 + iTerm1
 
-		sendCmd(1, regulateCmd(1, cmd1))
+		self.sendcmd(1, regulateCmd(1, cmd1))
 
 
 		#PID FOR MOTOR2
@@ -66,13 +66,13 @@ class Controller(Thread):
 		lastError2 = error2
 		cmd2 = pTerm2 + dTerm2 + iTerm2
 
-		sendCmd(2, regulateCmd(2, cmd2))
+		self.sendcmd(2, self.regulateCmd(2, cmd2))
 
 
 	#STOP BOTH MOTORS
 	def stop(self):
-		sendCmd(1, 0)
-		sendCmd(2, 0)
+		self.sendcmd(1, 0)
+		self.sendcmd(2, 0)
 
 	#SET A NEW DESIRED MOTOR ORIENTATION
 	def setDes(self, val1, val2):
@@ -95,5 +95,3 @@ class Controller(Thread):
 			if(cmd > 100)
 				cmd = 100
 		return cmd
-
-
