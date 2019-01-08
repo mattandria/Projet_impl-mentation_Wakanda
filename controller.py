@@ -54,7 +54,7 @@ class Controller(Thread):
 		lastError1 = error1
 		cmd1 = pTerm1 + dTerm1 + iTerm1
 
-		self.sendCmd(1, regulateCmd(1, cmd1))
+		self.sendCmd(1, self.regulateCmd(1, cmd1))
 
 
 		#PID FOR MOTOR2
