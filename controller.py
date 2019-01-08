@@ -37,7 +37,7 @@ class Controller(Thread):
 		self.totalError2 = 0
 
 	#SEND COMMAND TO A MOTOR
-	def sendcmd(self, motor, val):
+	def sendCmd(self, motor, val):
 		if(motor == 1):
 			self.PWM.set_duty_cycle(pinPWM1, val)
 		else:
@@ -54,7 +54,7 @@ class Controller(Thread):
 		lastError1 = error1
 		cmd1 = pTerm1 + dTerm1 + iTerm1
 
-		self.sendcmd(1, regulateCmd(1, cmd1))
+		self.sendCmd(1, regulateCmd(1, cmd1))
 
 
 		#PID FOR MOTOR2
@@ -66,13 +66,13 @@ class Controller(Thread):
 		lastError2 = error2
 		cmd2 = pTerm2 + dTerm2 + iTerm2
 
-		self.sendcmd(2, self.regulateCmd(2, cmd2))
+		self.sendCmd(2, self.regulateCmd(2, cmd2))
 
 
 	#STOP BOTH MOTORS
 	def stop(self):
-		self.sendcmd(1, 0)
-		self.sendcmd(2, 0)
+		self.sendCmd(1, 0)
+		self.sendCmd(2, 0)
 
 	#SET A NEW DESIRED MOTOR ORIENTATION
 	def setDes(self, val1, val2):
