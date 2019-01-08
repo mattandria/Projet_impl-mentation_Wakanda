@@ -1,10 +1,10 @@
-#from controller import Controller
+from controller import Controller
 from math import sqrt, acos, cos, atan2, pow
 
 class Wakanda(object):
 	#initialisation
 	def __init__(self, periodPWM, periodEncoders):
-		#self.controller = Controller(1000000, 100000000, "P8_13", "P8_8", "P8_19", "P8_17")
+		self.controller = Controller(periodPWM, periodEncoders, "P8_13", "P8_8", "P8_19", "P8_17")
 		self.og = [-10,0]
 		self.od = [10,0]
 		self.l1 = 60
@@ -17,12 +17,8 @@ class Wakanda(object):
 		thetad = atan2( y/dd, (x - self.od[0])/dd )
 		thetag = atan2( y/dg, (x - self.og[0])/dg )
 
-
 		d1 = pow(x - self.od[0], 2) + pow(y, 2) - pow(self.l1, 2) - pow(self.l2, 2)
 		d2 = pow(x - self.og[0], 2) + pow(y, 2) - pow(self.l1, 2) - pow(self.l2, 2)
-
-		print d1
-		print d2
 
 		if abs(d1) < 2*self.l1*self.l2 and abs(d2) < 2*self.l1*self.l2 :
 			betad = acos( d1/(2*self.l1*self.l2) )
@@ -43,4 +39,7 @@ class Wakanda(object):
 wakanda = Wakanda(10, 10)
 x = 20
 y = 30
-wakanda.modeleInverse(x, y)
+angles = wakanda.modeleInverse(x, y)
+if(len(angles) != 0):	#si la position est atteignable
+	wakanda.controller.setDes(angles[0], angles[1])
+	wakanda.controller.execute()
