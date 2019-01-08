@@ -20,10 +20,12 @@ class Controller(Thread):
 		self.pinDir1 = pinDir1
 		self.pinPWM2 = pinPWM2
 		self.pinDir2 = pinDir2
+		self.PWM = PWM
 		self.PWM.start(pinDir1, 0, period)
 		self.PWM.start(pinDir2, 0, period)
 
 		#GPIO setup
+		self.GPIO = GPIO
 		self.GPIO.setup(pinDir1, GPIO.OUT)
 		self.GPIO.setup(pinDir2, GPIO.OUT)
 
@@ -39,16 +41,16 @@ class Controller(Thread):
 	#SEND COMMAND TO A MOTOR
 	def sendCmd(self, motor, val):
 		if(motor == 1):
-			self.PWM.set_duty_cycle(pinPWM1, val)
+			self.PWM.set_duty_cycle(self.pinPWM1, val)
 		else:
-			self.PWM.set_duty_cycle(pinPWM2, val)
+			self.PWM.set_duty_cycle(self.pinPWM2, val)
 
 	#CALCULATE THE COMMAND TO SEND TO EACH MOTOR
 	def execute(self):
 		#PID FOR MOTOR1
 		error1 = self.des1 - self.encoder1.poll_position()/4
 		pTerm1 = self.Kp*error1
-		dTerm1 = self.Kd*(error1 - self.lastError)
+		dTerm1 = self.Kd*(error1 - self.lastError1)
 		self.totalError1+= error1
 		iTerm1 = self.Ki*self.totalError1
 		lastError1 = error1
@@ -60,8 +62,8 @@ class Controller(Thread):
 		#PID FOR MOTOR2
 		error2 = self.des2 - self.encoder2.poll_position()/4
 		pTerm2 = self.Kp*error2
-		dTerm2 = self.Kd*(error2 - self.lastError)
-		self.totalError2+= error2
+		dTerm2 = self.Kd*(error2 - self.lastError2)
+		self.totalError2 += error2
 		iTerm2 = self.Ki*self.totalError2
 		lastError2 = error2
 		cmd2 = pTerm2 + dTerm2 + iTerm2
@@ -81,16 +83,16 @@ class Controller(Thread):
 
 	#REGULATE THE COMMAND AND THE MOTOR DIRECTION
 	def regulateCmd(self, motor, cmd):
-		pinDir = pinDir1
+		pinDir = self.pinDir1
 		if(motor == 2):
-			pinDir = pinDir2
+			pinDir = self.pinDir2
 
 		if(cmd > 0):
-			self.GPIO.output(pinDir, GPIO.HIGH)
+			self.GPIO.output(pinDir, self.GPIO.HIGH)
 			if(cmd > 100)	#le duty_cycle ne peut pas depasser la valeur de la periode
 				cmd = 100
 		elif(cmd < 0):
-			self.GPIO.output(pinDir, GPIO.LOW)
+			self.GPIO.output(pinDir, self.GPIO.LOW)
 			cmd *= -1	#le duty cycle doit etre positif
 			if(cmd > 100)
 				cmd = 100
