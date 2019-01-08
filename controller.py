@@ -1,19 +1,19 @@
-import AdaFruit_BBIO.PWM as PWM
 import Adafruit_BBIO.GPIO as GPIO
+import Adafruit_BBIO.PWM as PWM
 import time
 from eqep import eQEP
 from threading import Thread
 
 class Controller(Thread):
 	#INITIALISATION
-	def__init__(self, periodPWM, periodEncoders, pinPWM1, pinDir1, pinPWM2, pinDir2):
+	def __init__(self, periodPWM, periodEncoders, pinPWM1, pinDir1, pinPWM2, pinDir2):
 		Thread.__init__(self)
 
 		#Encodeurs
 		self.encoder1 = eQEP("/sys/devices/ocp.3/48304000.epwmss/48304180.eqep", eQEP.MODE_ABSOLUTE)
 		self.encoder1.set_period(periodEncoders)
-		#self.encoder2 = eQEP("/sys/devices/ocp.3/48304000.epwmss/48304180.eqep", eQEP.MODE_ABSOLUTE)
-		#self.encoder2.set_period(periodEncoders)
+		self.encoder2 = eQEP("/sys/devices/ocp.3/48300000.epwmss/48300180.eqep", eQEP.MODE_ABSOLUTE)
+		self.encoder2.set_period(periodEncoders)
 
 		#PWMs
 		self.pinPWM1 = pinPWM1
@@ -21,8 +21,8 @@ class Controller(Thread):
 		self.pinPWM2 = pinPWM2
 		self.pinDir2 = pinDir2
 		self.PWM = PWM
-		self.PWM.start(pinDir1, 0, period)
-		self.PWM.start(pinDir2, 0, period)
+		self.PWM.start(pinDir1, 0, periodPWM)
+		self.PWM.start(pinDir2, 0, periodPWM)
 
 		#GPIO setup
 		self.GPIO = GPIO
@@ -89,11 +89,11 @@ class Controller(Thread):
 
 		if(cmd > 0):
 			self.GPIO.output(pinDir, self.GPIO.HIGH)
-			if(cmd > 100)	#le duty_cycle ne peut pas depasser la valeur de la periode
+			if(cmd > 100):	#le duty_cycle ne peut pas depasser la valeur de la periode
 				cmd = 100
 		elif(cmd < 0):
 			self.GPIO.output(pinDir, self.GPIO.LOW)
 			cmd *= -1	#le duty cycle doit etre positif
-			if(cmd > 100)
+			if(cmd > 100):
 				cmd = 100
 		return cmd

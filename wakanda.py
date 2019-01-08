@@ -5,6 +5,9 @@ class Wakanda(object):
 	#initialisation
 	def __init__(self, periodPWM, periodEncoders):
 		self.controller = Controller(periodPWM, periodEncoders, "P8_13", "P8_8", "P8_19", "P8_17")
+		"""self.controller.start()
+		self.controller.join()"""
+
 		self.og = [-10,0]
 		self.od = [10,0]
 		self.l1 = 60
@@ -36,10 +39,10 @@ class Wakanda(object):
 			return []
 
 
-wakanda = Wakanda(10, 10)
+wakanda = Wakanda(100000000, 100000000)
 x = 20
 y = 30
 angles = wakanda.modeleInverse(x, y)
 if(len(angles) != 0):	#si la position est atteignable
 	wakanda.controller.setDes(angles[0], angles[1])
-	wakanda.controller.execute()
+#	wakanda.controller.execute()
