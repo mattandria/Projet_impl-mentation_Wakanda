@@ -1,22 +1,53 @@
-import Adafruit_BBIO.PWM as PWM
+# API for the TI eQEP hardware driver I wrote
+
+# We need OS operations for this
+import os
 import Adafruit_BBIO.GPIO as GPIO
-import time
 
-myPWM="P8_13"
-GPIO.setup("P8_8",GPIO.OUT)
+class PWM(object):
+    # Set the unit timer period of the PWM hardware
+    def set_duty_cycle(self, pinPWM, duty_cycle):
+        pwm = ""
+        if(pinPWM == "P8_19"):
+            pwm = "pwm5"
+        else:
+            pwm = "pwm6"
 
-PWM.start(myPWM, 100, 1000000)
-PWM.set_duty_cycle(myPWM, 90)
+        # Open the mode attribute file
+        attribute = open(self.path + "/" + pwm + "/duty_ns", "w")
 
-GPIO.output("P8_8",GPIO.HIGH)
+        duty_cycle = duty_cycle*self.period/100
+        # Write the desired mode into the file
+        attribute.write(str(duty_cycle))
 
-to = time.clock()
+        # Close the file
+        attribute.close()
 
-while True:
-    GPIO.output("P8_8", GPIO.LOW)
-    time.sleep(2)
-    GPIO.output("P8_8", GPIO.HIGH)
-    time.sleep(2)
+    # Set the unit timer period of the PWM hardware
+    def set_period(self, pinPWM, period):
+        pwm = ""
+        if(pinPWM == "P8_19"):
+            pwm = "pwm5"
+        else:
+            pwm = "pwm6"
 
-PWM.stop(myPWM)
-PWM.cleanup()
+        # Open the mode attribute file
+        attribute = open(self.path + "/" + pwm + "/period_ns", "w")
+        print self.path + "/" + pwm + "/period_ns"
+
+        self.period = period
+
+        # Write the desired mode into the file
+        attribute.write(str(self.period))
+
+        # Close the file
+        attribute.close()
+
+    # Constructor - specify the path and the mode
+    def __init__(self):
+        self.path = "/sys/class/pwm"
+        self.period = 0
+        print "created"
+
+    def stop(self, pinPWM):
+        self.set_duty_cycle(pinPWM, 0)
