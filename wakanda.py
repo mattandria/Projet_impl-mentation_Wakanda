@@ -44,8 +44,8 @@ x = 20
 y = 30
 angles = wakanda.modeleInverse(x, y)
 if(len(angles) != 0):	#si la position est atteignable
-	wakanda.controller.setDes(angles[0], angles[1])
-	
+#	wakanda.controller.setDes(angles[0], angles[1])
+	wakanda.controller.setDes(-1.57, 0)	
 	while(True):
 		wakanda.controller.execute()
 

@@ -2,8 +2,8 @@ import time
 from pwm import PWM
 
 
-myPWM="P8_13"
+myPWM="P8_19"
 pwmmm = PWM()
 pwmmm.set_period(myPWM, 20000)
-pwmmm.set_duty_cycle(myPWM, 20)
+pwmmm.set_duty_cycle(myPWM, 0)
 
