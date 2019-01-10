@@ -3,11 +3,11 @@ from math import sqrt, acos, cos, atan2, pow
 
 class Wakanda(object):
 	#initialisation
-	def __init__(self, periodPWM, periodEncoders):
-		self.controller = Controller(periodPWM, periodEncoders, "P8_13", "P8_8", "P8_19", "P8_17")
-		"""self.controller.start()
-		self.controller.join()"""
-
+	def __init__(self):
+		self.controller = Controller("P8_13", "P8_8", "P8_19", "P8_17")
+		self.controller.start()
+		self.controller.join()
+		
 		self.og = [-10,0]
 		self.od = [10,0]
 		self.l1 = 60
@@ -39,10 +39,13 @@ class Wakanda(object):
 			return []
 
 
-wakanda = Wakanda(100000000, 100000000)
+wakanda = Wakanda()
 x = 20
 y = 30
 angles = wakanda.modeleInverse(x, y)
 if(len(angles) != 0):	#si la position est atteignable
 	wakanda.controller.setDes(angles[0], angles[1])
-#	wakanda.controller.execute()
+	
+	while(True):
+		wakanda.controller.execute()
+

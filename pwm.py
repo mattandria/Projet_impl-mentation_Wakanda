@@ -17,6 +17,8 @@ class PWM(object):
         attribute = open(self.path + "/" + pwm + "/duty_ns", "w")
 
         duty_cycle = duty_cycle*self.period/100
+	print "duty_cycle: {}".format(duty_cycle)
+
         # Write the desired mode into the file
         attribute.write(str(duty_cycle))
 
@@ -33,8 +35,7 @@ class PWM(object):
 
         # Open the mode attribute file
         attribute = open(self.path + "/" + pwm + "/period_ns", "w")
-        print self.path + "/" + pwm + "/period_ns"
-
+        
         self.period = period
 
         # Write the desired mode into the file
@@ -51,3 +52,4 @@ class PWM(object):
 
     def stop(self, pinPWM):
         self.set_duty_cycle(pinPWM, 0)
+
