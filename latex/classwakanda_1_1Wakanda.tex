@@ -1,0 +1,116 @@
+\hypertarget{classwakanda_1_1Wakanda}{}\section{wakanda.\+Wakanda Class Reference}
+\label{classwakanda_1_1Wakanda}\index{wakanda.\+Wakanda@{wakanda.\+Wakanda}}
+
+
+Classe principale responsable du suivi de trajectoire.  
+
+
+
+
+Inheritance diagram for wakanda.\+Wakanda\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classwakanda_1_1Wakanda__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for wakanda.\+Wakanda\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classwakanda_1_1Wakanda__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classwakanda_1_1Wakanda_a27ff7fb9ac3819931b93481588fb1e9f}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)\hypertarget{classwakanda_1_1Wakanda_a27ff7fb9ac3819931b93481588fb1e9f}{}\label{classwakanda_1_1Wakanda_a27ff7fb9ac3819931b93481588fb1e9f}
+
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+def \hyperlink{classwakanda_1_1Wakanda_a2240de179408dbc71c6892200cf5db1e}{modele\+Inverse} (self, x, y)
+\begin{DoxyCompactList}\small\item\em Function computing the angular positions of the motors required to place the effector at (x,y) \end{DoxyCompactList}\item 
+def \hyperlink{classwakanda_1_1Wakanda_ad7500c0f1ad6d9e44a391a0951c29e0e}{is\+Reached} (error)
+\begin{DoxyCompactList}\small\item\em Function verifying if the position targeted by the controller is reached with an given error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries controller}\hypertarget{classwakanda_1_1Wakanda_afa13c93d1acb04864ffb955670283f3f}{}\label{classwakanda_1_1Wakanda_afa13c93d1acb04864ffb955670283f3f}
+
+\item 
+{\bfseries og}\hypertarget{classwakanda_1_1Wakanda_aa8f99260cf4c31f0568aeabce94eb730}{}\label{classwakanda_1_1Wakanda_aa8f99260cf4c31f0568aeabce94eb730}
+
+\item 
+{\bfseries od}\hypertarget{classwakanda_1_1Wakanda_a0ffaac6b73ad8a383d669882bfaff80e}{}\label{classwakanda_1_1Wakanda_a0ffaac6b73ad8a383d669882bfaff80e}
+
+\item 
+{\bfseries l1}\hypertarget{classwakanda_1_1Wakanda_a0adce3e75ec43f53a88d3f8d52cc01e2}{}\label{classwakanda_1_1Wakanda_a0adce3e75ec43f53a88d3f8d52cc01e2}
+
+\item 
+{\bfseries l2}\hypertarget{classwakanda_1_1Wakanda_ac14b24f1212b25550698d56a861dc63a}{}\label{classwakanda_1_1Wakanda_ac14b24f1212b25550698d56a861dc63a}
+
+\item 
+{\bfseries positions}\hypertarget{classwakanda_1_1Wakanda_a968f66cd49217b9762b1eeaca9eeef74}{}\label{classwakanda_1_1Wakanda_a968f66cd49217b9762b1eeaca9eeef74}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe principale responsable du suivi de trajectoire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em period} & The unit timer period of the e\+Q\+EP hardware \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{wakanda\+::\+Wakanda@{wakanda\+::\+Wakanda}!is\+Reached@{is\+Reached}}
+\index{is\+Reached@{is\+Reached}!wakanda\+::\+Wakanda@{wakanda\+::\+Wakanda}}
+\subsubsection[{\texorpdfstring{is\+Reached(error)}{isReached(error)}}]{\setlength{\rightskip}{0pt plus 5cm}def wakanda.\+Wakanda.\+is\+Reached (
+\begin{DoxyParamCaption}
+\item[{}]{error}
+\end{DoxyParamCaption}
+)}\hypertarget{classwakanda_1_1Wakanda_ad7500c0f1ad6d9e44a391a0951c29e0e}{}\label{classwakanda_1_1Wakanda_ad7500c0f1ad6d9e44a391a0951c29e0e}
+
+
+Function verifying if the position targeted by the controller is reached with an given error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & Maximal value of the command to consider that the target for the controller is reached \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the position is reached, False otherwise 
+\end{DoxyReturn}
+\index{wakanda\+::\+Wakanda@{wakanda\+::\+Wakanda}!modele\+Inverse@{modele\+Inverse}}
+\index{modele\+Inverse@{modele\+Inverse}!wakanda\+::\+Wakanda@{wakanda\+::\+Wakanda}}
+\subsubsection[{\texorpdfstring{modele\+Inverse(self, x, y)}{modeleInverse(self, x, y)}}]{\setlength{\rightskip}{0pt plus 5cm}def wakanda.\+Wakanda.\+modele\+Inverse (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{classwakanda_1_1Wakanda_a2240de179408dbc71c6892200cf5db1e}{}\label{classwakanda_1_1Wakanda_a2240de179408dbc71c6892200cf5db1e}
+
+
+Function computing the angular positions of the motors required to place the effector at (x,y) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x,y} & Position of the effector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array containing the angles of the left and right motors. If the given position is unreachable, the function returns an empty array 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+wakanda.\+py\end{DoxyCompactItemize}

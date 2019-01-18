@@ -1,0 +1,198 @@
+\hypertarget{classcontroller_1_1Controller}{}\section{controller.\+Controller Class Reference}
+\label{classcontroller_1_1Controller}\index{controller.\+Controller@{controller.\+Controller}}
+
+
+Classe permettant de controler les moteurs grace a un P\+ID (un P\+ID pour chaque moteur)  
+
+
+
+
+Inheritance diagram for controller.\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classcontroller_1_1Controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for controller.\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classcontroller_1_1Controller__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classcontroller_1_1Controller_a60886a7a74662e1d71da2e88555bb08b}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, pin\+P\+W\+M1, pin\+Dir1, pin\+P\+W\+M2, pin\+Dir2)
+\begin{DoxyCompactList}\small\item\em Constructeur, on va y initialiser les pins pour le P\+WM et pour la direction pour chaque moteur. \end{DoxyCompactList}\item 
+def \hyperlink{classcontroller_1_1Controller_a93cb1a5ccca3ca00f803da3558dee95d}{send\+Cmd} (self, motor, val)
+\begin{DoxyCompactList}\small\item\em Envoie la commande entrée en argument a un moteur. \end{DoxyCompactList}\item 
+def \hyperlink{classcontroller_1_1Controller_aea95f1e9b68ed4eb5447e3e4aed805fa}{execute} (self)\hypertarget{classcontroller_1_1Controller_aea95f1e9b68ed4eb5447e3e4aed805fa}{}\label{classcontroller_1_1Controller_aea95f1e9b68ed4eb5447e3e4aed805fa}
+
+\begin{DoxyCompactList}\small\item\em Calcule la valeur de la commande a envoyer grace a un P\+ID. \end{DoxyCompactList}\item 
+def \hyperlink{classcontroller_1_1Controller_a8ba4b15d12681e8f94bfa136d984f8a4}{stop} (self)\hypertarget{classcontroller_1_1Controller_a8ba4b15d12681e8f94bfa136d984f8a4}{}\label{classcontroller_1_1Controller_a8ba4b15d12681e8f94bfa136d984f8a4}
+
+\begin{DoxyCompactList}\small\item\em Arrete les deux moteurs. \end{DoxyCompactList}\item 
+def \hyperlink{classcontroller_1_1Controller_a49d765b2942b1631d4c2680f2864fd55}{set\+Des} (self, val1, val2)
+\begin{DoxyCompactList}\small\item\em Definit une nouvelle position angulaire a atteindre pour les deux moteurs. \end{DoxyCompactList}\item 
+def \hyperlink{classcontroller_1_1Controller_a6a29180c5d05fe547cd94cc9074af539}{regulate\+Cmd} (self, motor, cmd)
+\begin{DoxyCompactList}\small\item\em Effectue la regulation des commandes a envoyer a un moteur en les mettant sous forme de pourcentage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries encoder1}\hypertarget{classcontroller_1_1Controller_a5b8777fdb2c8ad7684384109c392166c}{}\label{classcontroller_1_1Controller_a5b8777fdb2c8ad7684384109c392166c}
+
+\item 
+{\bfseries encoder2}\hypertarget{classcontroller_1_1Controller_a1f360500a110c27d8e0163fe2122a51c}{}\label{classcontroller_1_1Controller_a1f360500a110c27d8e0163fe2122a51c}
+
+\item 
+{\bfseries pin\+P\+W\+M1}\hypertarget{classcontroller_1_1Controller_a24253a87e72aac6cd3b3a786ad2a3224}{}\label{classcontroller_1_1Controller_a24253a87e72aac6cd3b3a786ad2a3224}
+
+\item 
+{\bfseries pin\+Dir1}\hypertarget{classcontroller_1_1Controller_af30aeb66aaf7f9bd9e795fc5692e7fbe}{}\label{classcontroller_1_1Controller_af30aeb66aaf7f9bd9e795fc5692e7fbe}
+
+\item 
+{\bfseries pin\+P\+W\+M2}\hypertarget{classcontroller_1_1Controller_a12984a4e33d79c394371931404318e6f}{}\label{classcontroller_1_1Controller_a12984a4e33d79c394371931404318e6f}
+
+\item 
+{\bfseries pin\+Dir2}\hypertarget{classcontroller_1_1Controller_ad640b792986fc8ad08b3e44e00beff3c}{}\label{classcontroller_1_1Controller_ad640b792986fc8ad08b3e44e00beff3c}
+
+\item 
+{\bfseries P\+WM}\hypertarget{classcontroller_1_1Controller_a0fdc67cb88248e25bea07b88ee790caa}{}\label{classcontroller_1_1Controller_a0fdc67cb88248e25bea07b88ee790caa}
+
+\item 
+{\bfseries G\+P\+IO}\hypertarget{classcontroller_1_1Controller_a1833635d6e43c51d1575dd148aba2416}{}\label{classcontroller_1_1Controller_a1833635d6e43c51d1575dd148aba2416}
+
+\item 
+{\bfseries Kp}\hypertarget{classcontroller_1_1Controller_a34cf377d78ee193d7160d74adbe9aabf}{}\label{classcontroller_1_1Controller_a34cf377d78ee193d7160d74adbe9aabf}
+
+\item 
+{\bfseries Kd}\hypertarget{classcontroller_1_1Controller_aa67f4d0fe3cb5e3659bf036eaa44f246}{}\label{classcontroller_1_1Controller_aa67f4d0fe3cb5e3659bf036eaa44f246}
+
+\item 
+{\bfseries Ki}\hypertarget{classcontroller_1_1Controller_ae2cdbac964e61042bab697b094df1e02}{}\label{classcontroller_1_1Controller_ae2cdbac964e61042bab697b094df1e02}
+
+\item 
+{\bfseries last\+Error1}\hypertarget{classcontroller_1_1Controller_a5b83374cef792121cf491db65eb4f722}{}\label{classcontroller_1_1Controller_a5b83374cef792121cf491db65eb4f722}
+
+\item 
+{\bfseries total\+Error1}\hypertarget{classcontroller_1_1Controller_a6f90d9dd72798c3d4e4fe7da9854f577}{}\label{classcontroller_1_1Controller_a6f90d9dd72798c3d4e4fe7da9854f577}
+
+\item 
+{\bfseries last\+Error2}\hypertarget{classcontroller_1_1Controller_af360e38aa896ac13078d88207b5d2ac1}{}\label{classcontroller_1_1Controller_af360e38aa896ac13078d88207b5d2ac1}
+
+\item 
+{\bfseries total\+Error2}\hypertarget{classcontroller_1_1Controller_a38ea8aa69fc02a699ee30b932f02afa4}{}\label{classcontroller_1_1Controller_a38ea8aa69fc02a699ee30b932f02afa4}
+
+\item 
+{\bfseries des1}\hypertarget{classcontroller_1_1Controller_a98214ada766afa8f1312bdcce1b21983}{}\label{classcontroller_1_1Controller_a98214ada766afa8f1312bdcce1b21983}
+
+\item 
+{\bfseries des2}\hypertarget{classcontroller_1_1Controller_a9600b6cbf89f06afeb5f19bc6b51bbc7}{}\label{classcontroller_1_1Controller_a9600b6cbf89f06afeb5f19bc6b51bbc7}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe permettant de controler les moteurs grace a un P\+ID (un P\+ID pour chaque moteur) 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{controller\+::\+Controller@{controller\+::\+Controller}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!controller\+::\+Controller@{controller\+::\+Controller}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, pin\+P\+W\+M1, pin\+Dir1, pin\+P\+W\+M2, pin\+Dir2)}{__init__(self, pinPWM1, pinDir1, pinPWM2, pinDir2)}}]{\setlength{\rightskip}{0pt plus 5cm}def controller.\+Controller.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{pin\+P\+W\+M1, }
+\item[{}]{pin\+Dir1, }
+\item[{}]{pin\+P\+W\+M2, }
+\item[{}]{pin\+Dir2}
+\end{DoxyParamCaption}
+)}\hypertarget{classcontroller_1_1Controller_a60886a7a74662e1d71da2e88555bb08b}{}\label{classcontroller_1_1Controller_a60886a7a74662e1d71da2e88555bb08b}
+
+
+Constructeur, on va y initialiser les pins pour le P\+WM et pour la direction pour chaque moteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin\+P\+W\+M1} & Le pin de P\+WM du moteur 1 \\
+\hline
+{\em pin\+Dir1} & Le pin de direction du moteur 1 \\
+\hline
+{\em pin\+P\+W\+M2} & Le pin de P\+WM du moteur 2 \\
+\hline
+{\em pin\+Dir2} & Le pin de direction du moteur 2 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{controller\+::\+Controller@{controller\+::\+Controller}!regulate\+Cmd@{regulate\+Cmd}}
+\index{regulate\+Cmd@{regulate\+Cmd}!controller\+::\+Controller@{controller\+::\+Controller}}
+\subsubsection[{\texorpdfstring{regulate\+Cmd(self, motor, cmd)}{regulateCmd(self, motor, cmd)}}]{\setlength{\rightskip}{0pt plus 5cm}def controller.\+Controller.\+regulate\+Cmd (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{motor, }
+\item[{}]{cmd}
+\end{DoxyParamCaption}
+)}\hypertarget{classcontroller_1_1Controller_a6a29180c5d05fe547cd94cc9074af539}{}\label{classcontroller_1_1Controller_a6a29180c5d05fe547cd94cc9074af539}
+
+
+Effectue la regulation des commandes a envoyer a un moteur en les mettant sous forme de pourcentage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor} & Le moteur auquel on va envoyer la commande \\
+\hline
+{\em cmd} & Valeur de la commande a envoyer \\
+\hline
+\end{DoxyParams}
+\index{controller\+::\+Controller@{controller\+::\+Controller}!send\+Cmd@{send\+Cmd}}
+\index{send\+Cmd@{send\+Cmd}!controller\+::\+Controller@{controller\+::\+Controller}}
+\subsubsection[{\texorpdfstring{send\+Cmd(self, motor, val)}{sendCmd(self, motor, val)}}]{\setlength{\rightskip}{0pt plus 5cm}def controller.\+Controller.\+send\+Cmd (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{motor, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classcontroller_1_1Controller_a93cb1a5ccca3ca00f803da3558dee95d}{}\label{classcontroller_1_1Controller_a93cb1a5ccca3ca00f803da3558dee95d}
+
+
+Envoie la commande entrée en argument a un moteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor} & Le moteur auquel on va envoyer la commande \\
+\hline
+{\em val} & Valeur de la commande a envoyer (en pourcentage, faisant reference au duty cycle) \\
+\hline
+\end{DoxyParams}
+\index{controller\+::\+Controller@{controller\+::\+Controller}!set\+Des@{set\+Des}}
+\index{set\+Des@{set\+Des}!controller\+::\+Controller@{controller\+::\+Controller}}
+\subsubsection[{\texorpdfstring{set\+Des(self, val1, val2)}{setDes(self, val1, val2)}}]{\setlength{\rightskip}{0pt plus 5cm}def controller.\+Controller.\+set\+Des (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{val1, }
+\item[{}]{val2}
+\end{DoxyParamCaption}
+)}\hypertarget{classcontroller_1_1Controller_a49d765b2942b1631d4c2680f2864fd55}{}\label{classcontroller_1_1Controller_a49d765b2942b1631d4c2680f2864fd55}
+
+
+Definit une nouvelle position angulaire a atteindre pour les deux moteurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val1} & Valeur de la commande pour le moteur 1 \\
+\hline
+{\em val1} & Valeur de la commande pour le moteur 2 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+controller.\+py\end{DoxyCompactItemize}

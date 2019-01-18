@@ -1,0 +1,159 @@
+\hypertarget{classeqep_1_1eQEP}{}\section{eqep.\+e\+Q\+EP Class Reference}
+\label{classeqep_1_1eQEP}\index{eqep.\+e\+Q\+EP@{eqep.\+e\+Q\+EP}}
+
+
+Classe permettant de gerer la position du moteur.  
+
+
+
+
+Inheritance diagram for eqep.\+e\+Q\+EP\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classeqep_1_1eQEP__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for eqep.\+e\+Q\+EP\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classeqep_1_1eQEP__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classeqep_1_1eQEP_ab214d60b7425c1d7803e3dff282b4255}{set\+\_\+mode} (self, mode)
+\begin{DoxyCompactList}\small\item\em Set the mode of the \hyperlink{classeqep_1_1eQEP}{e\+Q\+EP} hardware. \end{DoxyCompactList}\item 
+def \hyperlink{classeqep_1_1eQEP_a0b00fff3014216779db96333c76c41d9}{get\+\_\+mode} (self)\hypertarget{classeqep_1_1eQEP_a0b00fff3014216779db96333c76c41d9}{}\label{classeqep_1_1eQEP_a0b00fff3014216779db96333c76c41d9}
+
+\begin{DoxyCompactList}\small\item\em Get the mode of the \hyperlink{classeqep_1_1eQEP}{e\+Q\+EP} hardware. \end{DoxyCompactList}\item 
+def \hyperlink{classeqep_1_1eQEP_af025879aa5f70b38b8309de87c06df43}{set\+\_\+period} (self, period)
+\begin{DoxyCompactList}\small\item\em Set the unit timer period of the \hyperlink{classeqep_1_1eQEP}{e\+Q\+EP} hardware. \end{DoxyCompactList}\item 
+def \hyperlink{classeqep_1_1eQEP_a21826fd1f1b7524fe3883e25f619de1f}{get\+\_\+period} (self)\hypertarget{classeqep_1_1eQEP_a21826fd1f1b7524fe3883e25f619de1f}{}\label{classeqep_1_1eQEP_a21826fd1f1b7524fe3883e25f619de1f}
+
+\begin{DoxyCompactList}\small\item\em Get the unit timer period of the \hyperlink{classeqep_1_1eQEP}{e\+Q\+EP} hardware. \end{DoxyCompactList}\item 
+def \hyperlink{classeqep_1_1eQEP_a4cc40a4f3989be38ae46e427e09dfb04}{set\+\_\+position} (self, position)
+\begin{DoxyCompactList}\small\item\em Set the current position of the encoder hardware. \end{DoxyCompactList}\item 
+def \hyperlink{classeqep_1_1eQEP_aec4ddf0439a2df98e527b2963925d397}{get\+\_\+position} (self)\hypertarget{classeqep_1_1eQEP_aec4ddf0439a2df98e527b2963925d397}{}\label{classeqep_1_1eQEP_aec4ddf0439a2df98e527b2963925d397}
+
+\begin{DoxyCompactList}\small\item\em Get the immediate position of the encoder hardware. \end{DoxyCompactList}\item 
+def \hyperlink{classeqep_1_1eQEP_add267f1f55ca1e5fcef34b1a70db18a0}{poll\+\_\+position} (self)\hypertarget{classeqep_1_1eQEP_add267f1f55ca1e5fcef34b1a70db18a0}{}\label{classeqep_1_1eQEP_add267f1f55ca1e5fcef34b1a70db18a0}
+
+\begin{DoxyCompactList}\small\item\em Poll the position, returns when new data is available. \end{DoxyCompactList}\item 
+def \hyperlink{classeqep_1_1eQEP_a8110a8aae6998a20760af30020f894d2}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, path, mode)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ specify the path and the mode. \end{DoxyCompactList}\item 
+def \hyperlink{classeqep_1_1eQEP_ac80fa9e08911c4260207aacc72541863}{\+\_\+\+\_\+del\+\_\+\+\_\+} (self)\hypertarget{classeqep_1_1eQEP_ac80fa9e08911c4260207aacc72541863}{}\label{classeqep_1_1eQEP_ac80fa9e08911c4260207aacc72541863}
+
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries path}\hypertarget{classeqep_1_1eQEP_a1230ab18199a963f9d954777a2a336ca}{}\label{classeqep_1_1eQEP_a1230ab18199a963f9d954777a2a336ca}
+
+\item 
+{\bfseries fd}\hypertarget{classeqep_1_1eQEP_ac27da69238f8273eaf4e9883baec9aaa}{}\label{classeqep_1_1eQEP_ac27da69238f8273eaf4e9883baec9aaa}
+
+\item 
+{\bfseries poller}\hypertarget{classeqep_1_1eQEP_a3894927414d08b27680caa9580fd4776}{}\label{classeqep_1_1eQEP_a3894927414d08b27680caa9580fd4776}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries M\+O\+D\+E\+\_\+\+A\+B\+S\+O\+L\+U\+TE} = 0\hypertarget{classeqep_1_1eQEP_adb87525577f901bdc4845d527dc87ed7}{}\label{classeqep_1_1eQEP_adb87525577f901bdc4845d527dc87ed7}
+
+\item 
+int {\bfseries M\+O\+D\+E\+\_\+\+R\+E\+L\+A\+T\+I\+VE} = 1\hypertarget{classeqep_1_1eQEP_a6e95fe57827b6139f29bfd352d6bdf08}{}\label{classeqep_1_1eQEP_a6e95fe57827b6139f29bfd352d6bdf08}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe permettant de gerer la position du moteur. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{eqep\+::e\+Q\+EP@{eqep\+::e\+Q\+EP}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!eqep\+::e\+Q\+EP@{eqep\+::e\+Q\+EP}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, path, mode)}{__init__(self, path, mode)}}]{\setlength{\rightskip}{0pt plus 5cm}def eqep.\+e\+Q\+E\+P.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path, }
+\item[{}]{mode}
+\end{DoxyParamCaption}
+)}\hypertarget{classeqep_1_1eQEP_a8110a8aae6998a20760af30020f894d2}{}\label{classeqep_1_1eQEP_a8110a8aae6998a20760af30020f894d2}
+
+
+Constructor -\/ specify the path and the mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path of the encoder \\
+\hline
+{\em mode} & The desired mode\+: 0 (M\+O\+D\+E\+\_\+\+A\+B\+S\+O\+L\+U\+TE), 1 (M\+O\+D\+E\+\_\+\+R\+E\+L\+A\+T\+I\+VE) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{eqep\+::e\+Q\+EP@{eqep\+::e\+Q\+EP}!set\+\_\+mode@{set\+\_\+mode}}
+\index{set\+\_\+mode@{set\+\_\+mode}!eqep\+::e\+Q\+EP@{eqep\+::e\+Q\+EP}}
+\subsubsection[{\texorpdfstring{set\+\_\+mode(self, mode)}{set_mode(self, mode)}}]{\setlength{\rightskip}{0pt plus 5cm}def eqep.\+e\+Q\+E\+P.\+set\+\_\+mode (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{mode}
+\end{DoxyParamCaption}
+)}\hypertarget{classeqep_1_1eQEP_ab214d60b7425c1d7803e3dff282b4255}{}\label{classeqep_1_1eQEP_ab214d60b7425c1d7803e3dff282b4255}
+
+
+Set the mode of the \hyperlink{classeqep_1_1eQEP}{e\+Q\+EP} hardware. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The mode of the \hyperlink{classeqep_1_1eQEP}{e\+Q\+EP} hardware \\
+\hline
+\end{DoxyParams}
+\index{eqep\+::e\+Q\+EP@{eqep\+::e\+Q\+EP}!set\+\_\+period@{set\+\_\+period}}
+\index{set\+\_\+period@{set\+\_\+period}!eqep\+::e\+Q\+EP@{eqep\+::e\+Q\+EP}}
+\subsubsection[{\texorpdfstring{set\+\_\+period(self, period)}{set_period(self, period)}}]{\setlength{\rightskip}{0pt plus 5cm}def eqep.\+e\+Q\+E\+P.\+set\+\_\+period (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{period}
+\end{DoxyParamCaption}
+)}\hypertarget{classeqep_1_1eQEP_af025879aa5f70b38b8309de87c06df43}{}\label{classeqep_1_1eQEP_af025879aa5f70b38b8309de87c06df43}
+
+
+Set the unit timer period of the \hyperlink{classeqep_1_1eQEP}{e\+Q\+EP} hardware. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em period} & The unit timer period of the \hyperlink{classeqep_1_1eQEP}{e\+Q\+EP} hardware \\
+\hline
+\end{DoxyParams}
+\index{eqep\+::e\+Q\+EP@{eqep\+::e\+Q\+EP}!set\+\_\+position@{set\+\_\+position}}
+\index{set\+\_\+position@{set\+\_\+position}!eqep\+::e\+Q\+EP@{eqep\+::e\+Q\+EP}}
+\subsubsection[{\texorpdfstring{set\+\_\+position(self, position)}{set_position(self, position)}}]{\setlength{\rightskip}{0pt plus 5cm}def eqep.\+e\+Q\+E\+P.\+set\+\_\+position (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{position}
+\end{DoxyParamCaption}
+)}\hypertarget{classeqep_1_1eQEP_a4cc40a4f3989be38ae46e427e09dfb04}{}\label{classeqep_1_1eQEP_a4cc40a4f3989be38ae46e427e09dfb04}
+
+
+Set the current position of the encoder hardware. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The new position of the encoder hardware \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+eqep.\+py\end{DoxyCompactItemize}
