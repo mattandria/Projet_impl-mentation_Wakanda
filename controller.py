@@ -22,7 +22,7 @@ class Controller(Thread):
                 self.encoder1.set_period(20000)         #periode d'echantillonage a 20000 nanosecondes
                 self.encoder1.set_position(90*4)        #moteur 1 a 90 degres
                 self.encoder2 = eQEP("/sys/devices/platform/ocp/48300000.epwmss/48300180.eqep", eQEP.MODE_ABSOLUTE) #chemin vers position encodeur 2
-                self.encoder2.set_period(20000)         #periode d'echantillonage a 20000 nanosecondes  
+                self.encoder2.set_period(20000)         #periode d'echantillonage a 20000 nanosecondes
                 self.encoder2.set_position(90*4)        #on place le moteur 2 a 90 degres
 
                 #PWMs: on fait correspondre les differents pins entrés en argument
@@ -31,7 +31,7 @@ class Controller(Thread):
                 self.pinPWM2 = pinPWM2
                 self.pinDir2 = pinDir2
 
-                self.PWM = PWM()                        
+                self.PWM = PWM()
                 self.PWM.set_period(pinPWM1, 20000)     #les deux pins PWM envoient un signal de periode 20000 nanosecondes
                 self.PWM.set_period(pinPWM2, 20000)
 
@@ -40,7 +40,7 @@ class Controller(Thread):
                 self.GPIO.setup(pinDir1, GPIO.OUT)      #on specifie que les deux pins GPIO (de direction) sont en OUTPUT
                 self.GPIO.setup(pinDir2, GPIO.OUT)
 
-                #PID: on initialise les gains des PID 
+                #PID: on initialise les gains des PID
                 self.Kp = 0.5
                 self.Kd = 0
                 self.Ki = 0
@@ -88,7 +88,7 @@ class Controller(Thread):
                 lastError1 = error1
                 cmd1 = pTerm1# + iTerm1
 
-                # On envoie la commande apres en avoir fait une regulation 
+                # On envoie la commande apres en avoir fait une regulation
                 self.sendCmd(1, self.regulateCmd(1, cmd1))
                 print "iTerm1: {}".format(iTerm1)
 
@@ -96,7 +96,7 @@ class Controller(Thread):
                 print "position courante 2 = {}".format(self.encoder2.poll_position())
                 error2 = (2 * (self.des2 - (self.encoder2.poll_position()/4)%360)) % 360
                 print "erreur2: {}".format(error2)
-                pTerm2 = self.Kp*error2                     #terme proportionnel                         
+                pTerm2 = self.Kp*error2                     #terme proportionnel
                 dTerm2 = self.Kd*(error2 - self.lastError2) #terme derive
                 self.totalError2 += error2
                 iTerm2 = self.Ki*self.totalError2           #terme integral (qu'on sature)
@@ -133,7 +133,7 @@ class Controller(Thread):
 
         ## \brief Effectue la regulation des commandes a envoyer a un moteur en les mettant sous forme de pourcentage
         # @param motor Le moteur auquel on va envoyer la commande
-        # @param cmd Valeur de la commande a envoyer 
+        # @param cmd Valeur de la commande a envoyer
 
         #REGULATE THE COMMAND AND THE MOTOR DIRECTION
         def regulateCmd(self, motor, cmd):
@@ -142,10 +142,10 @@ class Controller(Thread):
                         pinDir = self.pinDir2
 
                 if(cmd > 0):
-                        self.GPIO.output(pinDir, self.GPIO.HIGH)        #si la commmande est positive, mettre le GPIO a HIGH
+                        self.GPIO.output(pinDir, self.GPIO.LOW)        #si la commmande est positive, mettre le GPIO a LOW
                         print "commande positive"
                 elif(cmd < 0):
-                        self.GPIO.output(pinDir, self.GPIO.LOW)         #si la commmande est negative, mettre le GPIO a LOW
+                        self.GPIO.output(pinDir, self.GPIO.HIGH)         #si la commmande est negative, mettre le GPIO a HIGH
                         cmd *= -1       #le duty cycle doit etre positif
                         print "commande negative"
 
