@@ -49,11 +49,12 @@ class Wakanda(object):
         ## \brief Function verifying if the position targeted by the controller is reached with an given error
         # @param error Maximal value of the command to consider that the target for the controller is reached
         # @return True if the position is reached, False otherwise
-        def isReached(error):
+        def isReached(self,error):
                 cmd=0
                 return (self.controller.regulateCmd(1,cmd)<error)&&(self.controller.regulateCmd(2,cmd)<error)
 
 
+# TEST POUR UNE SEULE POSITION
 """wakanda = Wakanda() #Instantiation of a Wakanda
 x=100
 y=0
@@ -63,6 +64,8 @@ if(len(angles) != 0):   #si la position est atteignable
         while True:
                 wakanda.controller.execute()"""
 
+
+# TEST DU SUIVI DE TRAJECTOIRE (METTRE LES COORDONNEES DES POINTS DANS LIST)
 wakanda = Wakanda() #Instantiation of a Wakanda
 i=0 #index of the current target
 list=[]
