@@ -17,6 +17,7 @@ class eQEP(object):
         attribute.close()   # Close the file
 
     ## \brief Get the mode of the eQEP hardware
+    # @return The mode of the eQep hardware
     def get_mode(self):
         attribute = open(self.path + "/mode", "r")  # Open the attribute file
 
@@ -36,6 +37,7 @@ class eQEP(object):
         attribute.close()   # Close the file
 
     ## \brief Get the unit timer period of the eQEP hardware
+    # @return The period of the eQep hardware
     def get_period(self):
         attribute = open(self.path + "/period", "r")    # Open the attribute file
 
@@ -43,7 +45,7 @@ class eQEP(object):
 
         attribute.close()   # Close the attribute
 
-        return period   # Return the mode
+        return period   # Return the period
 
     ## \brief Set the current position of the encoder hardware
     # @param position The new position of the encoder hardware
@@ -55,6 +57,7 @@ class eQEP(object):
         attribute.close()   # Close the file
 
     ## \brief Get the immediate position of the encoder hardware
+    # @return The immediate position of the encoder
     def get_position(self):
         attribute = open(self.path + "/position", "r")  # Open the attribute file
 
@@ -62,9 +65,10 @@ class eQEP(object):
 
         attribute.close()   # Close the attribute
 
-        return position # Return the mode
+        return position # Return the position
 
     ## \brief Poll the position, returns when new data is available
+    # @return This position
     def poll_position(self):
         self.poller.poll(-1)    # Poll the position file
 
